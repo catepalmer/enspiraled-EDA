@@ -1,18 +1,16 @@
 import React from 'react'
+import Circle from './Circle'
 
-const App = props => {
-  const circle = {
-    cx: props.width / 2,
-    cy: props.height / 2,
-    level: 0,
-    r: 256
+class App extends React.Component {
+  constructor(props) {
+    super(props)
   }
 
-  return (
-    <svg width={props.width} height={props.height}>
-      <circle cx={circle.cx} cy={circle.cy} r={circle.r} />
-    </svg>
-  )
+  render() {
+    return (
+      <Circle width={this.props.width} height={this.props.height} />
+    )
+  }
 }
 
 export default App
