@@ -5,70 +5,72 @@ class Circle extends React.Component {
     super(props)
 
     this.state = {
-      circle: {
-        cx: props.width / 2,
-        cy: props.height / 2,
-        level: 0,
-        r: 256,
-        hasChildren: false,
-        children: []
-      }
+      cx: props.cx,
+      cy: props.cy,
+      level: props.level,
+      r: props.r,
+      hasChildren: props.hasChildren,
+      children: props.children
     }
     this.handleMouseOver = this.handleMouseOver.bind(this)
   }
 
-  handleMouseOver () {
+  handleMouseOver() {
+    if (this.state.hasChildren === false) {
       this.setState({
-          hasChildren: true,
-          children: [
-              {
-                circle: {
-                    cx: this.state.cx,
-                    cy: this.state.cy - this.state.r,
-                    level: this.state.level + 1,
-                    r: this.state.r / 2,
-                    hasChildren: false,
-                    children: []
-                  }
-              },
-              {
-                circle: {
-                    cx: this.state.cx + this.state.r,
-                    cy: this.state.cy,
-                    level: this.state.level + 1,
-                    r: this.state.r / 2,
-                    hasChildren: false,
-                    children: []
-                  }
-              },
-              {
-                circle: {
-                    cx: this.state.cx,
-                    cy: this.state.cy + this.state.r,
-                    level: this.state.level + 1,
-                    r: this.state.r / 2,
-                    hasChildren: false,
-                    children: []
-                  }
-              },
-              {
-                circle: {
-                    cx: this.state.cx - this.state.r,
-                    cy: this.state.cy,
-                    level: this.state.level + 1,
-                    r: this.state.r / 2,
-                    hasChildren: false,
-                    children: []
-                  }
-              }
-          ]
+        hasChildren: true,
+        children: [
+          {
+              cx: this.state.cx,
+              cy: this.state.cy - this.state.r,
+              level: this.state.level + 1,
+              r: this.state.r / 2,
+              hasChildren: false,
+              children: []
+          },
+          {
+              cx: this.state.cx + this.state.r,
+              cy: this.state.cy,
+              level: this.state.level + 1,
+              r: this.state.r / 2,
+              hasChildren: false,
+              children: []
+          },
+          {
+              cx: this.state.cx,
+              cy: this.state.cy + this.state.r,
+              level: this.state.level + 1,
+              r: this.state.r / 2,
+              hasChildren: false,
+              children: []
+          },
+          {
+              cx: this.state.cx - this.state.r,
+              cy: this.state.cy,
+              level: this.state.level + 1,
+              r: this.state.r / 2,
+              hasChildren: false,
+              children: []
+          }
+        ]
       })
+    }
   }
 
   render() {
-    return (
+    if(this.state.hasChildren === true) {
+      return (
+        <svg width={this.props.width} height={this.props.height} >
+          <circle cx={this.state.cx} cy={this.state.cy} r={this.state.r} onMouseOver={this.handleMouseOver} />
+          <Circle cx={this.state.children[0].cx} cy={this.state.children[0].cy} r={this.state.children[0].r} onMouseOver={this.handleMouseOver} />
+          <Circle cx={this.state.children[1].cx} cy={this.state.children[1].cy} r={this.state.children[1].r} onMouseOver={this.handleMouseOver} />
+          <Circle cx={this.state.children[2].cx} cy={this.state.children[2].cy} r={this.state.children[2].r} onMouseOver={this.handleMouseOver} />
+          <Circle cx={this.state.children[3].cx} cy={this.state.children[3].cy} r={this.state.children[3].r} onMouseOver={this.handleMouseOver} />
+        </svg>
+      )
+    } else return (
       <svg width={this.props.width} height={this.props.height} >
-        <circle cx={this.state.circle.cx} cy={this.state.circle.cy} r={this.state.circle.r} mouseover={this.handleMouseOver} />
+        <circle cx={this.state.cx} cy={this.state.cy} r={this.state.r} onMouseOver={this.handleMouseOver} />
       </svg>
     )
   }
