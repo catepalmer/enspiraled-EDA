@@ -8,7 +8,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Circle width={this.props.width} height={this.props.height} cx={this.props.width / 2} cy={this.props.height / 2} level={0} r={256} hasChildren={false} children={[]} />
+      <Circle width={this.props.width} height={this.props.height} cx={this.props.width / 2} cy={this.props.height / 2} level={this.props.level} r={this.props.r} hasChildren={false} children={[]} />
     )
   }
 }

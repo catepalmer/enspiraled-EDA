@@ -1,6 +1,5 @@
 body {
-  background-color: white;
-  color: hsla(0, 0%, 60%, 1);
+  background-fill: white;
   font-family: Verdana, sans-serif;
   font-size: 18px;
   padding: 0;
@@ -9,4 +8,36 @@ body {
 
 circle {
   opacity: 0.3;
+}
+
+.level0 {
+  fill: lightskyblue;
+}
+
+.level1 {
+  fill: lightseagreen;
+}
+
+.level2 {
+  fill: pink;
+}
+
+.level3 {
+  fill: lightblue;
+}
+
+.level4 {
+  fill: lightgreen;
+}
+
+.level5 {
+  fill: lightsalmon;
+}
+
+.level6 {
+  fill: lightslategray;
+}
+
+.level7 {
+  fill: lightgoldenrodyellow;
 }
