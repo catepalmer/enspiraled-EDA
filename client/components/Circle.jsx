@@ -62,10 +62,10 @@ class Circle extends React.Component {
       return (
         <svg width={this.props.width} height={this.props.height} >
           <circle cx={this.state.cx} cy={this.state.cy} r={this.state.r} onMouseOver={this.handleMouseOver} />
-          <Circle cx={this.state.children[0].cx} cy={this.state.children[0].cy} r={this.state.children[0].r} onMouseOver={this.handleMouseOver} />
-          <Circle cx={this.state.children[1].cx} cy={this.state.children[1].cy} r={this.state.children[1].r} onMouseOver={this.handleMouseOver} />
-          <Circle cx={this.state.children[2].cx} cy={this.state.children[2].cy} r={this.state.children[2].r} onMouseOver={this.handleMouseOver} />
-          <Circle cx={this.state.children[3].cx} cy={this.state.children[3].cy} r={this.state.children[3].r} onMouseOver={this.handleMouseOver} />
+          <Circle cx={this.state.children[0].cx} cy={this.state.children[0].cy} r={this.state.children[0].r} onMouseOver={this.handleMouseOver} hasChildren={false} children={[]} />
+          <Circle cx={this.state.children[1].cx} cy={this.state.children[1].cy} r={this.state.children[1].r} onMouseOver={this.handleMouseOver} hasChildren={false} children={[]} />
+          <Circle cx={this.state.children[2].cx} cy={this.state.children[2].cy} r={this.state.children[2].r} onMouseOver={this.handleMouseOver} hasChildren={false} children={[]} />
+          <Circle cx={this.state.children[3].cx} cy={this.state.children[3].cy} r={this.state.children[3].r} onMouseOver={this.handleMouseOver} hasChildren={false} children={[]} />
         </svg>
       )
     } else return (
@@ -78,3 +78,27 @@ class Circle extends React.Component {
 }
 
 export default Circle
+
+
+
+
+
+
+// render() {
+//   if(this.state.hasChildren === true) {
+//     return (
+//       <svg width={this.props.width} height={this.props.height} >
+//         <circle cx={this.state.cx} cy={this.state.cy} r={this.state.r} onMouseOver={this.handleMouseOver} />
+//         {this.state.children.forEach(child => {
+//           <Circle cx={child.cx} cy={child.cy} r={child.r} onMouseOver={this.handleMouseOver} />
+//         })}
+//       </svg>
+//     )
+//   } else return (
+//     <svg width={this.props.width} height={this.props.height} >
+//       <circle cx={this.state.cx} cy={this.state.cy} r={this.state.r} onMouseOver={this.handleMouseOver} />
+//     </svg>
+//   )
+// }
+
+
