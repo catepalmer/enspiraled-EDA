@@ -24,7 +24,11 @@ class Circle extends React.Component {
         {cx: cx, cy: cy-r, r: r/2, level},
         {cx: cx, cy: cy+r, r: r/2, level},
         {cx: cx+r, cy: cy, r: r/2, level},
-        {cx: cx-r, cy: cy, r: r/2, level}
+        {cx: cx-r, cy: cy, r: r/2, level},
+        {cx: cx+r/2, cy: cy-r/2, r: r/2, level},
+        {cx: cx-r/2, cy: cy+r/2, r: r/2, level},
+        {cx: cx+r/2, cy: cy+r/2, r: r/2, level},
+        {cx: cx-r/2, cy: cy-r/2, r: r/2, level}
       )
       this.setState({
         hasChildren: true,
