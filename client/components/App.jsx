@@ -1,6 +1,16 @@
 import React from 'react'
 import Circle from './Circle'
 
+const width = window.innerWidth
+const height = window.innerHeight
+
+const circle = {
+  cx: width / 2,
+  cy: height / 2,
+  level: 0,
+  r: 256
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -8,7 +18,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <Circle width={this.props.width} height={this.props.height} cx={this.props.width / 2} cy={this.props.height / 2} level={this.props.level} r={this.props.r} hasChildren={false} children={[]} />
+      <svg width={width} height={height}>
+        <Circle circle={circle} />
+      </svg>
     )
   }
 }
